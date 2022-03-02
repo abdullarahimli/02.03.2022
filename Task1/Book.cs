@@ -7,18 +7,22 @@ namespace Task1
     class Book
     {
         private static int _count = 1;
-        public string Code { get; set; }
         public string Name { get; set; }
         public string AuthorName { get; set; }
         public int PageCount { get; set; }
-
-        public Book(string name, string authorName, int pageCount)
+        public string Code { get; set; }
+        public Book(string bookName, string authorName, int pageCount)
         {
             _count++;
-            Name = name;
+            Name = bookName;
             AuthorName = authorName;
             PageCount = pageCount;
-            Code = $"{Name[0..2].ToUpper()}{_count}";
+            Code = $"{bookName[0..2].ToUpper()}{_count}";
         }
+        public override string ToString()
+        {
+            return $"Code: {Code}\nBook Name: {Name}\nAuthor Name: {AuthorName}\nPage Count: {PageCount}";
+        }
+
     }
 }
